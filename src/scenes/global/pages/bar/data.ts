@@ -1,0 +1,32 @@
+export const data=[
+    {
+        year:2019,
+        spain:1900,
+        london:2100,
+        british:2500
+    },
+    {
+        year:2020,
+        spain:1700,
+        london:2200,
+        british:2300
+    },
+    {
+        year:2021,
+        spain:2000,
+        london:1900,
+        british:2300
+    },
+    {
+        year:2022,
+        spain:2300,
+        london:2000,
+        british:2200
+    },
+    {
+        year:2023,
+        spain:2400,
+        london:2300,
+        british:2400
+    }
+]

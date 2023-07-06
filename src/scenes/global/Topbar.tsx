@@ -100,13 +100,14 @@ const Topbar = ({ open, handleDrawerOpen,setMode }: any) => {
           alignItems="center"
           width="100%"
         >
-          <Search>
+          <Search sx={{width:"auto"}}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ "aria-label": "search" }}
+              sx={{width:"auto"}}
             />
           </Search>
           <Box color="inherit">

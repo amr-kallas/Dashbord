@@ -34,7 +34,7 @@ function createEventId() {
 // ]
 
 const Calender = () => {
-  const [weekendsVisible, setweekendsVisible] = useState(true);
+  const [weekendsVisible] = useState(true);
   const [currentEvents, setcurrentEvents] = useState<EventApi[]>([]);
   const isSmallScreen = useMediaQuery("(max-width:800px)");
 

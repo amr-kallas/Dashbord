@@ -1,4 +1,4 @@
-import { Stack, useTheme } from "@mui/material";
+import { Stack } from "@mui/material";
 import Card from "./reusable/Card";
 import EmailIcon from "@mui/icons-material/Email";
 import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
@@ -6,7 +6,6 @@ import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import TrafficIcon from "@mui/icons-material/Traffic";
 import * as data from "./data"
 export default function Row1() {
-   const theme=useTheme()
   return (
     <Stack direction="row" gap={1} sx={{
       flexWrap:"wrap"

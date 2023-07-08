@@ -1,7 +1,7 @@
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Box, InputBase, alpha, styled } from "@mui/material";
+import { Box, InputBase, alpha, styled, useTheme } from "@mui/material";
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 import SearchIcon from "@mui/icons-material/Search";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
@@ -9,7 +9,6 @@ import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
-import { useTheme } from "@emotion/react";
 const drawerWidth = 240;
 
 interface AppBarProps extends MuiAppBarProps {

@@ -1,10 +1,21 @@
 import { ResponsiveBar } from "@nivo/bar";
 import { data } from "./data";
 import { Box, useTheme } from "@mui/material";
-const Bar = () => {
+import TextHeader from "../../../../components/TextHeader";
+const Bar = ({ isDashbord = false }) => {
   const theme = useTheme();
   return (
-    <Box height="75vh" width="100%" sx={{ svg: { width: "100%" } }}>
+    <>
+     <TextHeader
+        title="Bar Chart"
+        subTitle="The minimum wage in Germany, France and Spain (EUR/month)"
+      />
+ 
+    <Box
+      height={isDashbord ? "300px" : "75vh"}
+      width="100%"
+      sx={{ svg: { width: "100%" } }}
+    >
       <ResponsiveBar
         data={data}
         keys={["spain", "london", "british"]}
@@ -110,7 +121,7 @@ const Bar = () => {
             tableCellValue: {},
           },
         }}
-        margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
+        margin={{ top: isDashbord ? 10 : 50, right: 90, bottom: 50, left: 40 }}
         padding={0.3}
         valueScale={{ type: "linear" }}
         indexScale={{ type: "band", round: true }}
@@ -159,7 +170,7 @@ const Bar = () => {
           tickSize: 5,
           tickPadding: 5,
           tickRotation: 0,
-          legend: "year",
+          legend: isDashbord ? undefined : "year",
           legendPosition: "middle",
           legendOffset: 35,
         }}
@@ -167,7 +178,7 @@ const Bar = () => {
           tickSize: 5,
           tickPadding: 5,
           tickRotation: 0,
-          legend: "Salary",
+          legend: isDashbord ? undefined : "Salary",
           legendPosition: "middle",
           legendOffset: -50,
         }}
@@ -208,6 +219,7 @@ const Bar = () => {
         }
       />
     </Box>
+    </>
   );
 };
 

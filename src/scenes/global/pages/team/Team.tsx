@@ -1,11 +1,12 @@
-import { DataGrid, GridColDef, GridRowsProp } from "@mui/x-data-grid";
+import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { rows } from "./data";
-import { Box, IconButton, Typography, useTheme } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import {
   AdminPanelSettingsOutlined,
   LockOpenOutlined,
   SecurityOutlined,
 } from "@mui/icons-material";
+import TextHeader from "../../../../components/TextHeader";
 
 const Team = () => {
   const theme = useTheme();
@@ -53,51 +54,56 @@ const Team = () => {
       headerAlign: "center",
       renderCell: ({ row: { access } }) => {
         return (
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              width: "100%",
-              backgroundColor:
-                access == "Admin"
-                  ? theme.palette.primary.dark
-                  : access == "Manager"
-                  ? theme.palette.secondary.dark
-                  : "#26a69a",
-              padding: "5px",
-              borderRadius: "3px",
-              color:"#fff",
-              cursor:"pointer"
-            }}
-          >
-            {access == "Admin" ? (
-              <AdminPanelSettingsOutlined
-                fontSize="small"
-                sx={{ color: "#fff" }}
-              />
-            ) : access == "Manager" ? (
-              <SecurityOutlined fontSize="small" sx={{ color: "#fff" }} />
-            ) : (
-              <LockOpenOutlined fontSize="small" sx={{ color: "#fff" }} />
-            )}
-
-            <Typography
+          <>
+            <Box
               sx={{
-                marginLeft: 1,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "100%",
+                backgroundColor:
+                  access == "Admin"
+                    ? theme.palette.primary.dark
+                    : access == "Manager"
+                    ? theme.palette.secondary.dark
+                    : "#26a69a",
+                padding: "5px",
+                borderRadius: "3px",
+                color: "#fff",
+                cursor: "pointer",
               }}
             >
-              {access}
-            </Typography>
-          </Box>
+              {access == "Admin" ? (
+                <AdminPanelSettingsOutlined
+                  fontSize="small"
+                  sx={{ color: "#fff" }}
+                />
+              ) : access == "Manager" ? (
+                <SecurityOutlined fontSize="small" sx={{ color: "#fff" }} />
+              ) : (
+                <LockOpenOutlined fontSize="small" sx={{ color: "#fff" }} />
+              )}
+
+              <Typography
+                sx={{
+                  marginLeft: 1,
+                }}
+              >
+                {access}
+              </Typography>
+            </Box>
+          </>
         );
       },
     },
   ];
   return (
-    <Box sx={{ height: 500, maxWidth: "99%" }}>
-      <DataGrid rows={rows} columns={columns} />
-    </Box>
+    <>
+      <TextHeader title="TEAM" subTitle="Managing the team members" isDashbord={false} />
+      <Box sx={{ height: 500, maxWidth: "99%"}}>
+        <DataGrid rows={rows} columns={columns} />
+      </Box>
+    </>
   );
 };
 

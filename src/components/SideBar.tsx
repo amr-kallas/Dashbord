@@ -22,7 +22,7 @@ import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 import { useLocation, useNavigate } from "react-router-dom";
 import { grey } from "@mui/material/colors";
-import { Avatar, Typography } from "@mui/material";
+import { Avatar, Tooltip, Typography } from "@mui/material";
 import Amr from "../../assets/photo_2023-06-26_23-00-05.jpg";
 const drawerWidth = 240;
 
@@ -99,7 +99,7 @@ const array3 = [
 const SideBar = ({ open, handleDrawerClose }: any) => {
   const theme = useTheme();
   const navigate = useNavigate();
-  const location=useLocation()
+  const location = useLocation();
   return (
     <Drawer variant="permanent" open={open}>
       <DrawerHeader>
@@ -148,103 +148,109 @@ const SideBar = ({ open, handleDrawerClose }: any) => {
       <Divider />
       <List>
         {array1.map((item) => (
-          <ListItem
-            key={item.title}
-            disablePadding
-            sx={{ display: "block" }}
-            onClick={() => navigate(item.path)}
-          >
-            <ListItemButton
-            selected={location.pathname==item.path}
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? "initial" : "center",
-                px: 2.5,
-              }}
+          <Tooltip title={!open?item.title:''} placement="right">
+            <ListItem
+              key={item.title}
+              disablePadding
+              sx={{ display: "block" }}
+              onClick={() => navigate(item.path)}
             >
-              <ListItemIcon
+              <ListItemButton
+                selected={location.pathname == item.path}
                 sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : "auto",
-                  justifyContent: "center",
+                  minHeight: 48,
+                  justifyContent: open ? "initial" : "center",
+                  px: 2.5,
                 }}
               >
-                {item.icon}
-              </ListItemIcon>
-              <ListItemText
-                primary={item.title}
-                sx={{ opacity: open ? 1 : 0 }}
-              />
-            </ListItemButton>
-          </ListItem>
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : "auto",
+                    justifyContent: "center",
+                  }}
+                >
+                  {item.icon}
+                </ListItemIcon>
+                <ListItemText
+                  primary={item.title}
+                  sx={{ opacity: open ? 1 : 0 }}
+                />
+              </ListItemButton>
+            </ListItem>
+          </Tooltip>
         ))}
       </List>
       <Divider />
       <List>
         {array2.map((item) => (
+          <Tooltip title={!open?item.title:''} placement="right">
           <ListItem
-            key={item.title}
-            disablePadding
-            sx={{ display: "block" }}
-            onClick={() => navigate(item.path)}
-          >
-            <ListItemButton
-            selected={location.pathname==item.path}
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? "initial" : "center",
-                px: 2.5,
-              }}
+              key={item.title}
+              disablePadding
+              sx={{ display: "block" }}
+              onClick={() => navigate(item.path)}
             >
-              <ListItemIcon
+              <ListItemButton
+                selected={location.pathname == item.path}
                 sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : "auto",
-                  justifyContent: "center",
+                  minHeight: 48,
+                  justifyContent: open ? "initial" : "center",
+                  px: 2.5,
                 }}
               >
-                {item.icon}
-              </ListItemIcon>
-              <ListItemText
-                primary={item.title}
-                sx={{ opacity: open ? 1 : 0 }}
-              />
-            </ListItemButton>
-          </ListItem>
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : "auto",
+                    justifyContent: "center",
+                  }}
+                >
+                  {item.icon}
+                </ListItemIcon>
+                <ListItemText
+                  primary={item.title}
+                  sx={{ opacity: open ? 1 : 0 }}
+                />
+              </ListItemButton>
+            </ListItem>
+          </Tooltip>
         ))}
       </List>
       <Divider />
       <List>
         {array3.map((item) => (
+          <Tooltip title={!open?item.title:''} placement="right">
           <ListItem
-            key={item.title}
-            disablePadding
-            sx={{ display: "block" }}
-            onClick={() => navigate(item.path)}
-          >
-            <ListItemButton
-            selected={location.pathname==item.path}
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? "initial" : "center",
-                px: 2.5,
-              }}
+              key={item.title}
+              disablePadding
+              sx={{ display: "block" }}
+              onClick={() => navigate(item.path)}
             >
-              <ListItemIcon
+              <ListItemButton
+                selected={location.pathname == item.path}
                 sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : "auto",
-                  justifyContent: "center",
+                  minHeight: 48,
+                  justifyContent: open ? "initial" : "center",
+                  px: 2.5,
                 }}
               >
-                {item.icon}
-              </ListItemIcon>
-              <ListItemText
-                primary={item.title}
-                sx={{ opacity: open ? 1 : 0 }}
-              />
-            </ListItemButton>
-          </ListItem>
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : "auto",
+                    justifyContent: "center",
+                  }}
+                >
+                  {item.icon}
+                </ListItemIcon>
+                <ListItemText
+                  primary={item.title}
+                  sx={{ opacity: open ? 1 : 0 }}
+                />
+              </ListItemButton>
+            </ListItem>
+          </Tooltip>
         ))}
       </List>
     </Drawer>

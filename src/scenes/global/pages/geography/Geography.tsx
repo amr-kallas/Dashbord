@@ -5,7 +5,7 @@ import { Box, useTheme } from '@mui/material'
 const Geography = () => {
   const theme=useTheme()
   return (
-    <Box height="75vh">
+    <Box height="75vh" width="100%" sx={{svg:{width:"100%"}}}>
       <ResponsiveChoropleth
         data={data}
         features={geoFeatures.features}

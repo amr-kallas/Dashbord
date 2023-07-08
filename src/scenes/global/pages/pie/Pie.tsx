@@ -33,10 +33,10 @@ export const data = [
     color: "hsl(111, 70%, 50%)",
   },
 ];
-const Pie = () => {
+const Pie = ({isDashbord=false}) => {
   const theme=useTheme()
   return (
-    <Box height="75vh">
+    <Box height={isDashbord?'175px':"75vh"} width="100%" sx={{svg:{width:"100%"}}}>
       <ResponsivePie
         data={data}
         theme={{          
@@ -140,7 +140,7 @@ const Pie = () => {
             tableCellValue: {},
           },
         }}
-        margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
+        margin={{ top: 0, right: 80, bottom: 0, left: 80 }}
         innerRadius={0.5}
         padAngle={0.7}
         cornerRadius={3}
@@ -150,6 +150,8 @@ const Pie = () => {
           from: "color",
           modifiers: [["darker", 0.2]],
         }}
+        enableArcLinkLabels={!isDashbord}
+        enableArcLabels={!isDashbord}
         arcLinkLabelsSkipAngle={10}
         arcLinkLabelsTextColor={theme.palette.text.primary}
         arcLinkLabelsThickness={2}
@@ -229,7 +231,7 @@ const Pie = () => {
             id: "lines",
           },
         ]}
-        legends={[
+        legends={isDashbord?undefined:[
           {
             anchor: "bottom",
             direction: "row",
@@ -254,6 +256,7 @@ const Pie = () => {
             ],
           },
         ]}
+        
       />
     </Box>
   );

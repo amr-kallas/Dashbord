@@ -4,13 +4,12 @@ import { Box, useTheme } from "@mui/material";
 const Bar = () => {
   const theme = useTheme();
   return (
-    <Box sx={{ height: "75vh" }}>
+    <Box height="75vh" width="100%" sx={{ svg: { width: "100%" } }}>
       <ResponsiveBar
         data={data}
         keys={["spain", "london", "british"]}
         indexBy="year"
         theme={{
-          
           axis: {
             domain: {
               line: {
@@ -111,7 +110,6 @@ const Bar = () => {
             tableCellValue: {},
           },
         }}
-        
         margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
         padding={0.3}
         valueScale={{ type: "linear" }}

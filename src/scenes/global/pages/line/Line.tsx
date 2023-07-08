@@ -1,15 +1,18 @@
 import { ResponsiveLine } from "@nivo/line";
-import {data} from './data'
+import { data } from "./data";
 import { Box, useTheme } from "@mui/material";
 
-const Line = () => {
-  const theme=useTheme()
+const Line = ({ isDashbord = false }) => {
+  const theme = useTheme();
   return (
-    <Box height="75vh">
+    <Box
+      height={isDashbord ? "300px" : "75vh"}
+      width="100%"
+      sx={{ svg: { width: "100%" } }}
+    >
       <ResponsiveLine
         data={data}
         theme={{
-          
           axis: {
             domain: {
               line: {
@@ -110,7 +113,7 @@ const Line = () => {
             tableCellValue: {},
           },
         }}
-        margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+        margin={{ top: isDashbord ? 10 : 50, right: 110, bottom: 50, left: 60 }}
         xScale={{ type: "point" }}
         yScale={{
           type: "linear",
@@ -126,7 +129,7 @@ const Line = () => {
           tickSize: 5,
           tickPadding: 5,
           tickRotation: 0,
-          legend: "transportation",
+          legend: isDashbord ? undefined : "transportation",
           legendOffset: 36,
           legendPosition: "middle",
         }}
@@ -134,7 +137,7 @@ const Line = () => {
           tickSize: 5,
           tickPadding: 5,
           tickRotation: 0,
-          legend: "count",
+          legend: isDashbord ? undefined : "count",
           legendOffset: -40,
           legendPosition: "middle",
         }}
